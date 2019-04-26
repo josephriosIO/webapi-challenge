@@ -48,4 +48,19 @@ router.put("/:id", async (req, res) => {
   }
 });
 
+//delete endpoint
+router.delete("/:id", async (req, res) => {
+  try {
+    const { id } = req.params;
+    const deleteProject = await projectDb.remove(id);
+    if (deleteProject === 0) {
+      res.status(400).json({ error: "no id found NULL" });
+    } else {
+      res.json(deleteProject);
+    }
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
 module.exports = router;
