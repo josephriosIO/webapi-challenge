@@ -19,4 +19,18 @@ router.get("/:id", async (req, res) => {
   }
 });
 
+// post endpoint
+router.post("/", async (req, res) => {
+  try {
+    const { name, description } = req.body;
+    if (!name || !description) {
+      res.status(400).json({ error: "please enter name and description" });
+    }
+    const newProject = await projectDb.insert(req.body);
+    res.json(newProject);
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
 module.exports = router;
