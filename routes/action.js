@@ -35,4 +35,19 @@ router.post("/", async (req, res) => {
   }
 });
 
+//put endpoint
+router.put("/:id", async (req, res) => {
+  try {
+    const { id } = req.params;
+    const updateAction = await actionDb.update(id, req.body);
+    if (updateAction === 0) {
+      res.status(400).json({ error: "no id found NULL" });
+    } else {
+      res.json(updateAction);
+    }
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
 module.exports = router;
