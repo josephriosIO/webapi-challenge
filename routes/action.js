@@ -19,4 +19,20 @@ router.get("/:id", async (req, res) => {
   }
 });
 
+// post endpoint
+router.post("/", async (req, res) => {
+  try {
+    const { project_id, description, notes } = req.body;
+    if (!project_id || !description || !notes) {
+      res
+        .status(400)
+        .json({ error: "A required field is missing please input it." });
+    }
+    const newAction = await actionDb.insert(req.body);
+    res.json({ newAction });
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
 module.exports = router;
