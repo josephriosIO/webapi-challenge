@@ -26,13 +26,23 @@ Demonstrate your understanding of this Sprint's concepts by answering the follow
 
 - [ ] Mention two parts of Express that you learned about this week.
 
+- Two parts I learned about express this week was the routes and the use of Middleware.
+
 - [ ] Describe Middleware?
+
+- Middleware is packages OR custom made routes to make the life of the developer easier
 
 - [ ] Describe a Resource?
 
+- A resource is used to understand a concept more.
+
 - [ ] What can the API return to help clients know if a request was successful?
 
+- An API can return the post our update back to the client to show thats what the backend is receiving and also give error or good status codes.
+
 - [ ] How can we partition our application into sub-applications?
+
+- We can partition our application by using routes to make our app into sup-apps.
 
 ## Project Setup
 
